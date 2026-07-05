@@ -12,7 +12,9 @@ This repository serves as the central intelligence hub for the **Digital Marketi
 - **[vendeur_features_raw.md](./vendeur_features_raw.md)**: A granular extraction of every feature currently live or upcoming on Vendeur.site, including AI Site Builder, Multi-channel Inbox, and TunisiaShip integration.
 - **[vendeur_potential_analysis.md](./vendeur_potential_analysis.md)**: Strategic analysis of the platform's potential for scaling across small, medium, and large enterprises, as well as specific advantages for dropshippers.
 
-### 3. Visual Assets
+### 3. Visual & Video Assets
+- **[vendeur_site_video_script.md](./vendeur_site_video_script.md)**: A 1-minute cinematic script in formal Arabic, designed to inspire Tunisian merchants and dropshippers.
+- **[veo3_video_prompt.md](./veo3_video_prompt.md)**: An ultra-realistic technical generation prompt for Veo 3, engineered for world-class video production.
 - **[encyclopedia_cover.png](./encyclopedia_cover.png)**: Professional, high-tech cover art for the Digital Marketing 5.0 brand.
 - **[augmented_merchant_visual.png](./augmented_merchant_visual.png)**: Infographic-style visualization of the Augmented Merchant framework.
 
