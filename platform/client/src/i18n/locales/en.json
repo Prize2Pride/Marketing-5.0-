@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "about": "About",
+    "login": "Login",
+    "dashboard": "My Learning",
+    "admin": "Admin",
+    "logout": "Logout"
+  },
+  "hero": {
+    "badge": "Powered by CodinCloud",
+    "title": "Master Digital Marketing",
+    "titleHighlight": "From Zero to ASI",
+    "subtitle": "The world's most advanced multilingual encyclopedia for Digital Marketing 5.0 — from absolute beginner to autonomous mega-scale mastery. Authored by Coach Roued El Fadhel.",
+    "cta_primary": "Start Learning Free",
+    "cta_secondary": "Explore the Encyclopedia",
+    "stats_learners": "Active Learners",
+    "stats_levels": "Mastery Levels",
+    "stats_languages": "Languages"
+  },
+  "features": {
+    "title": "The Complete Digital Marketing 5.0 System",
+    "subtitle": "Every pillar of modern and future marketing — structured, sequenced, and AI-augmented.",
+    "attention": {
+      "title": "Attention Engineering",
+      "desc": "Master the science of capturing and holding attention in the hyper-fragmented digital economy."
+    },
+    "loyalty": {
+      "title": "Loyalty 5.0",
+      "desc": "Engineer deep customer loyalty using RFM segmentation, community building, and emotional AI."
+    },
+    "agentic": {
+      "title": "Agentic Marketing",
+      "desc": "Deploy autonomous AI agents that market, sell, and scale your business 24/7 without human intervention."
+    },
+    "ecommerce": {
+      "title": "E-Commerce Mastery",
+      "desc": "From your first product listing to building an Amazon-scale autonomous commerce empire."
+    },
+    "social": {
+      "title": "Social & TikTok Commerce",
+      "desc": "Dominate short-form video, viral mechanics, and social commerce across all platforms."
+    },
+    "ai": {
+      "title": "AI & AGI Integration",
+      "desc": "Leverage cutting-edge AI, AGI principles, and future ASI frameworks for unstoppable growth."
+    }
+  },
+  "levels": {
+    "title": "10 Levels of Mastery",
+    "subtitle": "A structured path from absolute beginner to autonomous mega-scale marketing genius.",
+    "level": "Level",
+    "modules": "modules",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "expert": "Expert",
+    "master": "Master",
+    "autonomous": "Autonomous"
+  },
+  "coach": {
+    "title": "Your Coach",
+    "name": "Coach Roued El Fadhel",
+    "role": "Digital Marketing Strategist & AI Commerce Pioneer",
+    "bio": "Coach Roued El Fadhel is a pioneering digital marketing strategist and the founder of Prize2Pride. With deep expertise spanning traditional e-commerce, AI-augmented marketing, and the emerging frontiers of AGI-driven commerce, he has designed this encyclopedia to be the definitive guide for the next generation of digital entrepreneurs.",
+    "credential1": "Digital Marketing 5.0 Architect",
+    "credential2": "AI Commerce Pioneer",
+    "credential3": "Multilingual Educator (AR/FR/EN)"
+  },
+  "codincloud": {
+    "badge": "In Partnership With",
+    "name": "CodinCloud",
+    "desc": "Prize2Pride is proudly powered by CodinCloud — the technology infrastructure partner enabling this platform's AI capabilities, multilingual architecture, and scalable delivery."
+  },
+  "course": {
+    "enroll": "Enroll Now",
+    "continue": "Continue Learning",
+    "start": "Start Level",
+    "complete": "Mark Complete",
+    "completed": "Completed",
+    "locked": "Locked",
+    "progress": "Progress",
+    "chapter": "Chapter",
+    "module": "Module",
+    "level": "Level",
+    "toc": "Table of Contents",
+    "next": "Next Chapter",
+    "prev": "Previous Chapter",
+    "back_to_course": "Back to Course"
+  },
+  "ai_tutor": {
+    "title": "Coach Roued AI Avatar",
+    "subtitle": "Your personal AI guide — ask anything about the course",
+    "placeholder": "Ask Coach Roued anything...",
+    "send": "Send",
+    "thinking": "Coach Roued is thinking...",
+    "welcome": "Welcome! I am Coach Roued El Fadhel's AI Avatar. I am here to guide you through your Digital Marketing 5.0 journey. What would you like to learn today?"
+  },
+  "dashboard": {
+    "title": "My Learning Dashboard",
+    "enrolled": "Enrolled Courses",
+    "completed_levels": "Completed Levels",
+    "total_progress": "Overall Progress",
+    "continue_learning": "Continue Learning",
+    "achievements": "Achievements",
+    "no_enrollments": "You haven't enrolled yet.",
+    "enroll_now": "Browse Courses"
+  },
+  "admin": {
+    "title": "Admin Dashboard",
+    "users": "Users",
+    "enrollments": "Enrollments",
+    "content": "Content",
+    "analytics": "Analytics",
+    "total_users": "Total Users",
+    "total_enrollments": "Total Enrollments",
+    "completion_rate": "Completion Rate",
+    "active_today": "Active Today"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong.",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "search": "Search",
+    "language": "Language",
+    "theme": "Theme",
+    "dark": "Dark",
+    "light": "Light"
+  }
+}
