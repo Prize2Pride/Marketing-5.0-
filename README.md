@@ -5,6 +5,7 @@ This repository serves as the central intelligence hub for the **Digital Marketi
 ## Repository Contents
 
 ### 1. Core Intelligence
+- **[Vendeur.site Revolutionary Manifesto](./Vendeur.site_Revolutionary_Manifesto.md)**: The definitive description of Vendeur.site as the most revolutionary hub for augmented commerce.
 - **[Digital_Marketing_5.0_Encyclopedia_2027.pdf](./Digital_Marketing_5.0_Encyclopedia_2027.pdf)**: The definitive guide to e-commerce in 2027, covering human-tech synergy, attention engineering, and loyalty 5.0.
 - **[encyclopedia_full.md](./encyclopedia_full.md)**: The source markdown for the encyclopedia and the 2027 Marketing Roadmap.
 
