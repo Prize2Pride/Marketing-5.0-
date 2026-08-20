@@ -1,0 +1,111 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1783393249182,
+      "tag": "0000_chemical_red_hulk",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1783393522371,
+      "tag": "0001_sleepy_black_knight",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1783397350717,
+      "tag": "0002_modern_agent_brand",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1787265556571,
+      "tag": "0003_magical_stone_men",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1787265846834,
+      "tag": "0004_salty_butterfly",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1787266235225,
+      "tag": "0005_remarkable_namor",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1787266576177,
+      "tag": "0006_oval_corsair",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1787267068657,
+      "tag": "0007_burly_scorpion",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1787267473568,
+      "tag": "0008_slow_morlocks",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1787267696791,
+      "tag": "0009_acoustic_captain_flint",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1787268000658,
+      "tag": "0010_odd_brood",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1787268819685,
+      "tag": "0011_gorgeous_professor_monster",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1787269122658,
+      "tag": "0012_sour_roughhouse",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1787269277503,
+      "tag": "0013_ancient_baron_zemo",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "5",
+      "when": 1787269581054,
+      "tag": "0014_happy_snowbird",
+      "breakpoints": true
+    }
+  ]
+}

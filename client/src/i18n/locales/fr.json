@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "courses": "Cours",
+    "about": "À propos",
+    "login": "Connexion",
+    "dashboard": "Mon Apprentissage",
+    "admin": "Admin",
+    "logout": "Déconnexion"
+  },
+  "hero": {
+    "badge": "Propulsé par CodinCloud",
+    "title": "Maîtrisez le Marketing Digital",
+    "titleHighlight": "De Zéro à l'ASI",
+    "subtitle": "L'encyclopédie multilingue la plus avancée du Marketing Digital 5.0 — du débutant absolu à la maîtrise autonome à grande échelle. Rédigée par le Coach Roued El Fadhel.",
+    "cta_primary": "Commencer Gratuitement",
+    "cta_secondary": "Explorer l'Encyclopédie",
+    "stats_learners": "Apprenants Actifs",
+    "stats_levels": "Niveaux de Maîtrise",
+    "stats_languages": "Langues"
+  },
+  "features": {
+    "title": "Le Système Complet du Marketing Digital 5.0",
+    "subtitle": "Chaque pilier du marketing moderne et futur — structuré, séquencé et augmenté par l'IA.",
+    "attention": {
+      "title": "Ingénierie de l'Attention",
+      "desc": "Maîtrisez la science de capturer et de retenir l'attention dans l'économie numérique hyper-fragmentée."
+    },
+    "loyalty": {
+      "title": "Fidélité 5.0",
+      "desc": "Construisez une fidélité client profonde grâce à la segmentation RFM, la communauté et l'IA émotionnelle."
+    },
+    "agentic": {
+      "title": "Marketing Agentique",
+      "desc": "Déployez des agents IA autonomes qui commercialisent, vendent et développent votre activité 24h/24."
+    },
+    "ecommerce": {
+      "title": "Maîtrise du E-Commerce",
+      "desc": "De votre première fiche produit à la construction d'un empire commercial autonome à l'échelle d'Amazon."
+    },
+    "social": {
+      "title": "Commerce Social & TikTok",
+      "desc": "Dominez la vidéo courte, les mécaniques virales et le commerce social sur toutes les plateformes."
+    },
+    "ai": {
+      "title": "Intégration IA & AGI",
+      "desc": "Exploitez l'IA de pointe, les principes AGI et les futurs cadres ASI pour une croissance inarrêtable."
+    }
+  },
+  "levels": {
+    "title": "10 Niveaux de Maîtrise",
+    "subtitle": "Un parcours structuré du débutant absolu au génie du marketing autonome à grande échelle.",
+    "level": "Niveau",
+    "modules": "modules",
+    "beginner": "Débutant",
+    "intermediate": "Intermédiaire",
+    "advanced": "Avancé",
+    "expert": "Expert",
+    "master": "Maître",
+    "autonomous": "Autonome"
+  },
+  "coach": {
+    "title": "Votre Coach",
+    "name": "Coach Roued El Fadhel",
+    "role": "Stratège en Marketing Digital & Pionnier du Commerce IA",
+    "bio": "Le Coach Roued El Fadhel est un stratège pionnier en marketing digital et fondateur de Prize2Pride. Fort d'une expertise approfondie couvrant le e-commerce traditionnel, le marketing augmenté par l'IA et les frontières émergentes du commerce piloté par l'AGI, il a conçu cette encyclopédie pour être le guide définitif de la prochaine génération d'entrepreneurs digitaux.",
+    "credential1": "Architecte du Marketing Digital 5.0",
+    "credential2": "Pionnier du Commerce IA",
+    "credential3": "Éducateur Multilingue (AR/FR/EN)"
+  },
+  "codincloud": {
+    "badge": "En Partenariat Avec",
+    "name": "CodinCloud",
+    "desc": "Prize2Pride est fièrement propulsé par CodinCloud — le partenaire technologique qui permet les capacités IA, l'architecture multilingue et la livraison évolutive de cette plateforme."
+  },
+  "course": {
+    "enroll": "S'inscrire Maintenant",
+    "continue": "Continuer l'Apprentissage",
+    "start": "Commencer le Niveau",
+    "complete": "Marquer comme Terminé",
+    "completed": "Terminé",
+    "locked": "Verrouillé",
+    "progress": "Progression",
+    "chapter": "Chapitre",
+    "module": "Module",
+    "level": "Niveau",
+    "toc": "Table des Matières",
+    "next": "Chapitre Suivant",
+    "prev": "Chapitre Précédent",
+    "back_to_course": "Retour au Cours"
+  },
+  "ai_tutor": {
+    "title": "Avatar IA Coach Roued",
+    "subtitle": "Votre guide IA personnel — posez toutes vos questions sur le cours",
+    "placeholder": "Demandez n'importe quoi au Coach Roued...",
+    "send": "Envoyer",
+    "thinking": "Le Coach Roued réfléchit...",
+    "welcome": "Bienvenue ! Je suis l'Avatar IA du Coach Roued El Fadhel. Je suis ici pour vous guider dans votre parcours Marketing Digital 5.0. Que souhaitez-vous apprendre aujourd'hui ?"
+  },
+  "dashboard": {
+    "title": "Mon Tableau de Bord",
+    "enrolled": "Cours Inscrits",
+    "completed_levels": "Niveaux Complétés",
+    "total_progress": "Progression Globale",
+    "continue_learning": "Continuer l'Apprentissage",
+    "achievements": "Réalisations",
+    "no_enrollments": "Vous n'êtes pas encore inscrit.",
+    "enroll_now": "Parcourir les Cours"
+  },
+  "admin": {
+    "title": "Tableau de Bord Admin",
+    "users": "Utilisateurs",
+    "enrollments": "Inscriptions",
+    "content": "Contenu",
+    "analytics": "Analytiques",
+    "total_users": "Total Utilisateurs",
+    "total_enrollments": "Total Inscriptions",
+    "completion_rate": "Taux de Complétion",
+    "active_today": "Actifs Aujourd'hui"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite.",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "search": "Rechercher",
+    "language": "Langue",
+    "theme": "Thème",
+    "dark": "Sombre",
+    "light": "Clair"
+  }
+}

@@ -1,0 +1,2 @@
+ALTER TABLE `lesson_recordings` ADD `scheduleCronTaskUid` varchar(65);--> statement-breakpoint
+CREATE INDEX `lesson_recordings_schedule_cron_task_uid_idx` ON `lesson_recordings` (`scheduleCronTaskUid`);

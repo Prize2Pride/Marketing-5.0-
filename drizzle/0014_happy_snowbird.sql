@@ -1,0 +1,1 @@
+ALTER TABLE `creator_artifacts` MODIFY COLUMN `kind` enum('lesson','book','document','code','spreadsheet','chart_spec','infographic','poster','audio_brief','video_brief','quiz') NOT NULL;

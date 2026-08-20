@@ -1,0 +1,1 @@
+ALTER TABLE `creator_artifacts` MODIFY COLUMN `status` enum('draft','generating','ready','failed','approved','ingested','published') NOT NULL DEFAULT 'draft';
