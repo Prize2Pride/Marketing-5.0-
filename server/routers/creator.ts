@@ -49,6 +49,20 @@ const generatedArtifactSchema = {
       content: { type: "string" },
       imagePrompt: { type: "string" },
       nextStep: { type: "string" },
+      production: {
+        type: "object",
+        properties: {
+          script: { type: "string" },
+          timing: { type: "string" },
+          transcript: { type: "string" },
+          rightsNotes: { type: "string" },
+          evidenceChecks: { type: "string" },
+          accessibilityNotes: { type: "string" },
+          hierarchyNotes: { type: "string" },
+        },
+        required: ["script", "timing", "transcript", "rightsNotes", "evidenceChecks", "accessibilityNotes", "hierarchyNotes"],
+        additionalProperties: false,
+      },
       sections: {
         type: "array",
         items: {
@@ -62,7 +76,7 @@ const generatedArtifactSchema = {
         },
       },
     },
-    required: ["title", "content", "imagePrompt", "nextStep", "sections"],
+    required: ["title", "content", "imagePrompt", "nextStep", "production", "sections"],
     additionalProperties: false,
   },
 } as const;
@@ -78,7 +92,7 @@ function artifactInstructions(kind: (typeof artifactKinds)[number]) {
     chart_spec: "Create a data-chart specification with audience, question the chart answers, suitable chart type, explicit dimensions and measures, data-source assumptions, required fields, calculation rules, accessible title and alt text, visual hierarchy, and interpretation guidance. Do not invent quantitative evidence.",
     infographic: "Create a clear infographic content brief with hierarchy, short labels, layout guidance, and accessible alt text.",
     poster: "Create a marketing poster creative brief with a strong headline, supporting message, CTA, visual hierarchy, and accessible alt text.",
-    audio_brief: "Create an educational audio or music-production brief with learning objective, listener profile, recommended duration, spoken or lyric-safe concept, rhythm and sound-direction guidance, voiceover or recording plan, caption/transcript plan, and rights-safe sourcing notes. Do not output copyrighted lyrics or claim to have generated an audio file.",
+    audio_brief: "Create an educational audio or music-production brief with learning objective, listener profile, recommended duration, spoken or lyric-safe concept, rhythm and sound-direction guidance, voiceover or recording plan, caption/transcript plan, and rights-safe sourcing notes. Populate production.script, production.timing, production.transcript, and production.rightsNotes with practical reviewable details. Do not output copyrighted lyrics or claim to have generated an audio file.",
     video_brief: "Create a video production brief with audience, hook, scene-by-scene storyboard, voiceover, shot list, CTA, and accessibility notes.",
     quiz: "Create a formative quiz with answers and brief explanations. Focus on understanding rather than trick questions.",
   };
@@ -187,7 +201,7 @@ export const creatorRouter = router({
         });
         const raw = response.choices?.[0]?.message?.content;
         const generated = JSON.parse(typeof raw === "string" ? raw : "{}") as {
-          title: string; content: string; imagePrompt: string; nextStep: string; sections: Array<{ title: string; summary: string }>;
+          title: string; content: string; imagePrompt: string; nextStep: string; production: { script: string; timing: string; transcript: string; rightsNotes: string; evidenceChecks: string; accessibilityNotes: string; hierarchyNotes: string }; sections: Array<{ title: string; summary: string }>;
         };
         const title = generated.title?.trim() || input.title;
         const content = `${generated.content?.trim() || ""}\n\n---\n\n**Next step:** ${generated.nextStep?.trim() || "Review this draft and adapt it to your business context."}`;
@@ -209,7 +223,7 @@ export const creatorRouter = router({
           title,
           content,
           status: "ready",
-          metadata: { imageUrl, imagePrompt: generated.imagePrompt, imageError, outputKind: input.kind },
+          metadata: { imageUrl, imagePrompt: generated.imagePrompt, imageError, outputKind: input.kind, production: generated.production },
         }).where(eq(creatorArtifacts.id, artifactId));
 
         const sections = (generated.sections ?? []).slice(0, 16);

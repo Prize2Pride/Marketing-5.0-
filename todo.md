@@ -77,6 +77,18 @@
 - [x] Implement DOCX export and structured export metadata for book and document artifacts
 - [x] Add explicit artifact review metadata, approval actions, and an admin review queue
 
+## Production-Grade Creative Learning Studio
+- [x] Add a guided lesson-to-output wizard with format-specific prompts and quality checklist
+- [x] Add print-ready HTML/PDF preview for document and course artifacts without falsely claiming a rendered PDF exists
+- [x] Add guided chart, infographic, and poster brief previews with accessibility and fact-check prompts
+- [x] Add a rights-safe audio or music lesson-production brief with script, timing, and transcript guidance
+- [x] Add a video-tutorial production workflow with scene timeline, narration, visual direction, and accessibility checks
+- [x] Add multilingual proofreading and publishing guidance for English, French, and Arabic/Darja artifacts
+- [x] Add a multi-step lesson-to-output transformation wizard with source, requirements, review, and generation stages
+- [x] Add specialized chart, infographic, and poster review panels for evidence, accessibility, and hierarchy checks
+- [x] Add structured audio-brief fields for script, timing, transcript, and rights notes with explicit Studio rendering
+- [x] Complete manual visual verification for the guided transformation and format-specific review workflows
+
 ## Multilingual Academy & Educator Platform Expansion
 - [x] Define independent subject schools for digital marketing, AI, data science, robotics, 3D printing, mathematics, physics, quantum computing, quantum physics, and research
 - [x] Add multilingual subject discovery and navigation in English, French, and Arabic
