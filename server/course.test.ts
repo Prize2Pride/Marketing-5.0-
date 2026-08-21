@@ -126,6 +126,13 @@ describe("admin router", () => {
     await expect(caller.admin.listArtifactsForReview()).resolves.toEqual([]);
   });
 
+  it("aggregates governed content-feed states, including legacy drafts", async () => {
+    const db = { select: vi.fn(() => ({ from: vi.fn().mockResolvedValue([{ status: "draft" }, { status: "ready" }, { status: "approved" }, { status: "ingested" }, { status: "published" }, { status: "failed" }]) })) };
+    mockedGetDb.mockResolvedValue(db as any);
+    const caller = appRouter.createCaller(createAdminContext());
+    await expect(caller.admin.getContentFeedMetrics()).resolves.toEqual({ generating: 1, ready: 1, approved: 1, ingested: 1, published: 1, failed: 1, total: 6 });
+  });
+
   it("requires database access to review or ingest an artifact", async () => {
     const caller = appRouter.createCaller(createAdminContext());
     await expect(caller.admin.reviewArtifact({ artifactId: 42, decision: "approve" })).rejects.toThrow("Database unavailable");

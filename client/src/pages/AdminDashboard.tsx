@@ -15,6 +15,7 @@ export default function AdminDashboard() {
   const { data: stats } = trpc.admin.getStats.useQuery(undefined, { enabled: isAuthenticated && user?.role === "admin" });
   const { data: users } = trpc.admin.getUsers.useQuery({ limit: 20, offset: 0 }, { enabled: isAuthenticated && user?.role === "admin" });
   const { data: artifactQueue } = trpc.admin.listArtifactsForReview.useQuery(undefined, { enabled: isAuthenticated && user?.role === "admin" });
+  const { data: contentFeed } = trpc.admin.getContentFeedMetrics.useQuery(undefined, { enabled: isAuthenticated && user?.role === "admin" });
   const { data: modules } = trpc.admin.getModulesForIngestion.useQuery(undefined, { enabled: isAuthenticated && user?.role === "admin" });
   const { data: educatorApplications } = trpc.admin.listEducatorApplications.useQuery(undefined, { enabled: isAuthenticated && user?.role === "admin" });
   const [reviewNotes, setReviewNotes] = useState<Record<number, string>>({});
@@ -89,6 +90,14 @@ export default function AdminDashboard() {
               </div>
             ))}
           </div>
+
+          <section className="glass-card rounded-2xl overflow-hidden mb-8">
+            <div className="p-6 border-b border-border/50 flex items-center gap-3"><div className="rounded-xl bg-primary/10 p-2"><TrendingUp className="w-5 h-5 text-primary" /></div><div><h2 className="font-display font-semibold">{language === "ar" ? "خط تغذية المحتوى" : language === "fr" ? "Flux de contenu gouverné" : "Governed content feed"}</h2><p className="text-sm text-muted-foreground mt-1">{language === "ar" ? "تتبع كل مورد من الإنشاء إلى المراجعة ثم المسودة أو النشر." : language === "fr" ? "Suivez chaque ressource de la création à la révision, puis au brouillon ou à la publication." : "Track each artifact from creation through review, draft ingestion, and publication."}</p></div></div>
+            <div className="grid grid-cols-2 md:grid-cols-6 gap-px bg-border/40">{[
+              ["generating", language === "ar" ? "إنشاء" : language === "fr" ? "Création" : "Generating"], ["ready", language === "ar" ? "للمراجعة" : language === "fr" ? "À réviser" : "Ready"], ["approved", language === "ar" ? "معتمد" : language === "fr" ? "Approuvé" : "Approved"], ["ingested", language === "ar" ? "مسودة" : language === "fr" ? "Brouillon" : "Draft ingested"], ["published", language === "ar" ? "منشور" : language === "fr" ? "Publié" : "Published"], ["failed", language === "ar" ? "يحتاج إصلاحاً" : language === "fr" ? "À corriger" : "Needs repair"],
+            ].map(([key, label]) => <div key={key} className="bg-card/80 p-4"><p className="text-2xl font-display font-bold">{contentFeed?.[key as keyof typeof contentFeed] ?? 0}</p><p className="text-xs text-muted-foreground mt-1">{label}</p></div>)}</div>
+            <div className="px-6 py-3 text-xs text-muted-foreground">{language === "ar" ? "المراجعة إلزامية قبل تحويل المورد إلى درس؛ النشر قرار منفصل." : language === "fr" ? "La révision est obligatoire avant l'intégration en leçon ; la publication est une décision distincte." : "Review is required before lesson ingestion; publication remains a separate decision."}</div>
+          </section>
 
           <section className="glass-card rounded-2xl overflow-hidden mb-8">
             <div className="p-6 border-b border-border/50 flex items-center gap-3"><div className="rounded-xl bg-primary/10 p-2"><Users className="w-5 h-5 text-primary" /></div><div><h2 className="font-display font-semibold">{language === "ar" ? "طلبات المعلمين" : language === "fr" ? "Candidatures enseignants" : "Educator applications"}</h2><p className="text-sm text-muted-foreground mt-1">{language === "ar" ? "اعتمد الحساب لتفعيل إنشاء المدرسة الفرعية." : language === "fr" ? "Approuvez un compte pour activer la création d'une sous-plateforme." : "Approve an account to activate teacher subplatform creation."}</p></div></div>

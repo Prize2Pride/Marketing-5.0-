@@ -71,6 +71,18 @@ export const adminRouter = router({
       .limit(50);
   }),
 
+  getContentFeedMetrics: adminProcedure.query(async () => {
+    const db = await getDb();
+    if (!db) return { generating: 0, ready: 0, approved: 0, ingested: 0, published: 0, failed: 0, total: 0 };
+    const artifacts = await db.select({ status: creatorArtifacts.status }).from(creatorArtifacts);
+    const metrics = { generating: 0, ready: 0, approved: 0, ingested: 0, published: 0, failed: 0, total: artifacts.length };
+    for (const artifact of artifacts) {
+      if (artifact.status === "draft") metrics.generating += 1;
+      else metrics[artifact.status] += 1;
+    }
+    return metrics;
+  }),
+
   getModulesForIngestion: adminProcedure.query(async () => {
     const db = await getDb();
     if (!db) return [];
