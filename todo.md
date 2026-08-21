@@ -30,7 +30,7 @@
 - [ ] Integrate payment gateways for code generation credits
 - [ ] Implement payment system for infographic generation
 - [ ] Develop certification programs and payment integration
-- [ ] Explore API access and agency partnership models
+- [x] Explore API access and agency partnership models
 
 ### Phase 6: Integration, Testing & Deployment
 - [x] Integrate all new features into the Prize2Pride platform
