@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { eq, asc, and, inArray } from "drizzle-orm";
 import { getDb } from "../db";
-import { levels, modules, chapters, enrollments, chapterProgress, learnerProfiles } from "../../drizzle/schema";
+import { levels, modules, chapters, enrollments, chapterProgress, learnerProfiles, courseCertificates } from "../../drizzle/schema";
 import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
 
 export const courseRouter = router({
@@ -171,6 +171,49 @@ export const courseRouter = router({
       .map((chapter) => ({ ...chapter, module: orderedModules.find((module) => module.id === chapter.moduleId) }));
     const difficulty = profile?.adaptiveDifficulty ?? (progress.length >= 12 ? "challenge" : progress.length >= 4 ? "standard" : "guided");
     return { profile: profile ?? null, completedCount: progress.length, difficulty, nextChapters };
+  }),
+
+  getCertificateEligibility: protectedProcedure
+    .input(z.object({ levelId: z.number().int().positive() }))
+    .query(async ({ ctx, input }) => {
+      const db = await getDb();
+      if (!db) return { eligible: false, requiredChapters: 0, completedChapters: 0, certificate: null };
+      const [level] = await db.select().from(levels).where(and(eq(levels.id, input.levelId), eq(levels.isPublished, true))).limit(1);
+      if (!level) return { eligible: false, requiredChapters: 0, completedChapters: 0, certificate: null };
+      const [enrollment] = await db.select().from(enrollments).where(and(eq(enrollments.userId, ctx.user.id), eq(enrollments.levelId, input.levelId), eq(enrollments.isActive, true))).limit(1);
+      if (!enrollment) return { eligible: false, requiredChapters: 0, completedChapters: 0, certificate: null };
+      const levelModules = await db.select().from(modules).where(and(eq(modules.levelId, input.levelId), eq(modules.isPublished, true)));
+      const levelChapters = levelModules.length ? await db.select().from(chapters).where(and(inArray(chapters.moduleId, levelModules.map((module) => module.id)), eq(chapters.isPublished, true))) : [];
+      const progress = levelChapters.length ? await db.select().from(chapterProgress).where(and(eq(chapterProgress.userId, ctx.user.id), inArray(chapterProgress.chapterId, levelChapters.map((chapter) => chapter.id)))) : [];
+      const [certificate] = await db.select().from(courseCertificates).where(and(eq(courseCertificates.userId, ctx.user.id), eq(courseCertificates.levelId, input.levelId), eq(courseCertificates.status, "issued"))).limit(1);
+      return { eligible: levelChapters.length > 0 && progress.length === levelChapters.length, requiredChapters: levelChapters.length, completedChapters: progress.length, certificate: certificate ?? null };
+    }),
+
+  issueMyCertificate: protectedProcedure
+    .input(z.object({ levelId: z.number().int().positive(), language: z.enum(["en", "fr", "ar"]).default("en") }))
+    .mutation(async ({ ctx, input }) => {
+      const db = await getDb();
+      if (!db) throw new Error("Certificates are temporarily unavailable");
+      const [existing] = await db.select().from(courseCertificates).where(and(eq(courseCertificates.userId, ctx.user.id), eq(courseCertificates.levelId, input.levelId), eq(courseCertificates.status, "issued"))).limit(1);
+      if (existing) return existing;
+      const [level] = await db.select().from(levels).where(and(eq(levels.id, input.levelId), eq(levels.isPublished, true))).limit(1);
+      if (!level) throw new Error("This learning path is unavailable");
+      const [enrollment] = await db.select().from(enrollments).where(and(eq(enrollments.userId, ctx.user.id), eq(enrollments.levelId, input.levelId), eq(enrollments.isActive, true))).limit(1);
+      if (!enrollment) throw new Error("Enroll in this learning path before requesting a certificate");
+      const levelModules = await db.select().from(modules).where(and(eq(modules.levelId, input.levelId), eq(modules.isPublished, true)));
+      const levelChapters = levelModules.length ? await db.select().from(chapters).where(and(inArray(chapters.moduleId, levelModules.map((module) => module.id)), eq(chapters.isPublished, true))) : [];
+      const progress = levelChapters.length ? await db.select().from(chapterProgress).where(and(eq(chapterProgress.userId, ctx.user.id), inArray(chapterProgress.chapterId, levelChapters.map((chapter) => chapter.id)))) : [];
+      if (!levelChapters.length || progress.length !== levelChapters.length) throw new Error("Complete every published lesson in this learning path before requesting a certificate");
+      const verificationCode = `P2P-${crypto.randomUUID().replace(/-/g, "").slice(0, 20).toUpperCase()}`;
+      await db.insert(courseCertificates).values({ userId: ctx.user.id, levelId: input.levelId, verificationCode, language: input.language, criteria: { requiredChapters: levelChapters.length, completedChapters: progress.length, levelSlug: level.slug } });
+      const [certificate] = await db.select().from(courseCertificates).where(eq(courseCertificates.verificationCode, verificationCode)).limit(1);
+      return certificate!;
+    }),
+
+  listMyCertificates: protectedProcedure.query(async ({ ctx }) => {
+    const db = await getDb();
+    if (!db) return [];
+    return db.select().from(courseCertificates).where(and(eq(courseCertificates.userId, ctx.user.id), eq(courseCertificates.status, "issued"))).orderBy(asc(courseCertificates.issuedAt));
   }),
 
   // Get stats for admin

@@ -97,6 +97,13 @@ describe("course router", () => {
     const result = await caller.course.getMyProgress();
     expect(Array.isArray(result)).toBe(true);
   });
+
+  it("keeps certificate eligibility and listing safe when the database is unavailable", async () => {
+    const caller = appRouter.createCaller(createUserContext());
+    await expect(caller.course.getCertificateEligibility({ levelId: 1 })).resolves.toEqual({ eligible: false, requiredChapters: 0, completedChapters: 0, certificate: null });
+    await expect(caller.course.listMyCertificates()).resolves.toEqual([]);
+    await expect(caller.course.issueMyCertificate({ levelId: 1, language: "en" })).rejects.toThrow("Certificates are temporarily unavailable");
+  });
 });
 
 describe("admin router", () => {

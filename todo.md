@@ -27,9 +27,10 @@
 - [x] Add explicit AI-generated examples to custom course lesson drafts and their Course Builder preview
 
 ### Phase 5: Multi-Revenue Stream Monetization
-- [ ] Integrate payment gateways for code generation credits
-- [ ] Implement payment system for infographic generation
-- [ ] Develop certification programs and payment integration
+- [ ] Integrate payment gateways for code generation credits — Deferred pending owner-provided Stripe Secret Key and Publishable Key in Settings → Payment.
+- [ ] Implement payment system for infographic generation — Deferred pending owner-provided Stripe Secret Key and Publishable Key in Settings → Payment.
+- [ ] Develop certification programs and payment integration — Deferred pending owner-provided Stripe Secret Key and Publishable Key in Settings → Payment; the non-payment certificate foundation is available now.
+- [x] Add non-payment certificate eligibility and issuance foundations for completed learning paths
 - [x] Explore API access and agency partnership models
 
 ### Phase 6: Integration, Testing & Deployment

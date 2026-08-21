@@ -111,6 +111,23 @@ export const chapterProgress = mysqlTable("chapter_progress", {
 
 export type ChapterProgress = typeof chapterProgress.$inferSelect;
 
+// ─── Course Certificates ──────────────────────────────────────────────────────
+export const courseCertificates = mysqlTable("course_certificates", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull().references(() => users.id),
+  levelId: int("levelId").notNull().references(() => levels.id),
+  verificationCode: varchar("verificationCode", { length: 40 }).notNull().unique(),
+  language: varchar("language", { length: 8 }).default("en").notNull(),
+  criteria: json("criteria").notNull(),
+  status: mysqlEnum("status", ["issued", "revoked"]).default("issued").notNull(),
+  issuedBy: int("issuedBy").references(() => users.id),
+  issuedAt: timestamp("issuedAt").defaultNow().notNull(),
+  revokedAt: timestamp("revokedAt"),
+  revokeReason: text("revokeReason"),
+}, (table) => [index("course_certificates_user_level_idx").on(table.userId, table.levelId)]);
+
+export type CourseCertificate = typeof courseCertificates.$inferSelect;
+
 // ─── Adaptive Learning Profiles ──────────────────────────────────────────────
 export const learnerProfiles = mysqlTable("learner_profiles", {
   id: int("id").autoincrement().primaryKey(),
